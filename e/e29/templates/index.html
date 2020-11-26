@@ -1,0 +1,63 @@
+<div class = "container">
+    <div class="jumbotron mt-3">
+ 
+        <h1>Face_Tracker</h1>
+        <A>Git Hub repository : </A> <A href="https://github.com/hwan27/aiffel"> face_tracker</A>
+        <br>
+ 
+        <hr class="solid">
+ 
+        <div id="sampleBox">
+            <h2>나랑 닮은 연예인을 찾아보세요!</h2>
+            <figure>
+                <img class="img" src="./images/아이유.jpg" alt="sample_image">
+            </figure>
+ 
+ 
+        </div>
+        <br>
+        <h2>Upload </h2>
+        <div id = 'inputImage'>
+            <label for="source">Source image : </label>
+            <input type = 'file' id = 'source' style="margin-right: 10px; margin-bottom: 10px;">
+            <button id = "submit" type='submit' class="btn btn-primary btn-lg" style="margin-left: auto;"> Run </button>
+        </div>
+ 
+        <div id ='resultBox' style="margin-left: auto; margin-right: auto;">
+            <p id='errorbox'></p>
+            <p id='result'></p>
+        </div>
+        <script>
+            document.getElementById("submit").onclick = () => {
+                var formData = new FormData();
+                var source = document.getElementById('source').files[0];
+ 
+                formData.append('source', source);
+                for (var value of formData.values()) {
+
+                    console.log(value);
+
+                }
+                fetch(
+                    '/image',
+                    {
+                        method: 'POST',
+                        body: formData
+                    }
+                )
+                .then(response => {
+                    if (response.status == 200) {
+                        return response.text();
+                    }
+                    else {
+                        throw Error("Loading image error");
+                    }
+                }).then(text => {
+                    document.getElementById('result').innerText = text;
+                }).catch(e =>{
+                    document.getElementById("errorbox").innerHTML = e;
+                });
+            };
+        </script>
+    </div>
+ </div>
