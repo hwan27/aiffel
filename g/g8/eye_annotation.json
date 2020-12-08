@@ -1,0 +1,17 @@
+{
+  "img_dir": "/home/aiffel0042/aiffel/coarse_to_fine/data",
+  "labels": {
+    "eye.png": [
+      226,
+      152
+    ]
+  }
+}{
+  "img_dir": "/home/aiffel0042/aiffel/coarse_to_fine/data",
+  "labels": {
+    "eye.png": [
+      217,
+      159
+    ]
+  }
+}
