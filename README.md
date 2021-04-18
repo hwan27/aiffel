@@ -43,6 +43,7 @@
 |3|GoStop|
 |4|Segmentation|
 |5|OCR|
-|6|Eye annotation|
-|7|Pose estimation|
+|6|Sticker VCamera|
+|7|Eye Annotation|
+|8|Pose estimation|
 
